@@ -1,0 +1,24 @@
+class Solution:
+    def sortColors(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        low = 0
+        high = len(nums)-1
+        mid = 0
+        while mid <= high:
+            if nums[mid] == 0:
+                self.swap(nums, low, mid)
+                low += 1
+                mid += 1
+            elif nums[mid] == 1:
+                mid += 1
+            else:
+                self.swap(nums, mid, high)
+                high -= 1
+                
+    def swap(self, nums, i, j):
+        tmp = nums[i]
+        nums[i] = nums[j]
+        nums[j] = tmp
